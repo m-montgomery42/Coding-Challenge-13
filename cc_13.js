@@ -46,7 +46,7 @@ function addEmployeeCard(name, position) {
 // Example employee cards with aviation-related job titles
 addEmployeeCard("James Carter", "Pilot - Captain");
 addEmployeeCard("Sophia Reynolds", "Air Traffic Controller");
-addEmployeeCard("Daniel Thompson", "Aircraft Maintenance Engineer");
+addEmployeeCard("Daniel Thompson", "Aircraft Maintenance");
 addEmployeeCard("Emma Rodriguez", "Flight Attendant");
 addEmployeeCard("Michael Johnson", "Aviation Safety Inspector");
 
@@ -66,3 +66,18 @@ function highlightEmployeeCards() {
 
 // Call the function to apply highlighting to all cards
 highlightEmployeeCards(); // **Update for task 1 commit name**
+
+// Task 4: Implementing Removal of Employee Cards with Event Bubbling
+
+// Add event listener to employeeContainer for event bubbling
+employeeContainer.addEventListener("click", function (event) {
+    console.log("An employee card was clicked!"); // Log message when any card is clicked
+});
+
+// Modify remove button event listener to prevent event bubbling
+document.querySelectorAll(".remove-btn").forEach(button => {
+    button.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent event from bubbling up
+        this.parentElement.remove(); // Remove the employee card
+    });
+});
