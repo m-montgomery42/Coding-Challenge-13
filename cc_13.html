@@ -54,12 +54,18 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        .save-btn { background-color: green; color: white; }
-        .edit-btn { background-color: orange; color: white; }
-        .remove-btn { background-color: red; color: white; }
-        button:hover {
-            opacity: 0.8;
-        }
+        .save-btn, .edit-btn, .remove-btn {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+.save-btn:hover, .edit-btn:hover, .remove-btn:hover {
+    background-color: #ddd;
+}
     </style>
 </head>
 <body>
