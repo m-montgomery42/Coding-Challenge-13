@@ -81,3 +81,46 @@ document.querySelectorAll(".remove-btn").forEach(button => {
         this.parentElement.remove(); // Remove the employee card
     });
 });
+
+// Task 5: Inline Editing of Employee Details
+
+// Function to enable inline editing on double-click
+function enableEditing(card) {
+    const nameHeading = card.querySelector("h3"); // Select the name element
+    const positionPara = card.querySelector("p"); // Select the position element
+
+    // Create input fields
+    const nameInput = document.createElement("input"); // Create input for name
+    nameInput.type = "text"; // Set input type
+    nameInput.value = nameHeading.textContent; // Pre-fill with current name
+
+    const positionInput = document.createElement("input"); // Create input for position
+    positionInput.type = "text"; // Set input type
+    positionInput.value = positionPara.textContent; // Pre-fill with current position
+
+    const saveButton = document.createElement("button"); // Create "Save" button
+    saveButton.textContent = "Save"; // Set button text
+    saveButton.classList.add("save-btn"); // Add class for styling
+
+    // When save button is clicked, update the card details
+    saveButton.addEventListener("click", function () {
+        nameHeading.textContent = nameInput.value; // Set new name
+        positionPara.textContent = positionInput.value; // Set new position
+        card.replaceChild(nameHeading, nameInput); // Replace input with static text
+        card.replaceChild(positionPara, positionInput); // Replace input with static text
+        card.replaceChild(editButton, saveButton); // Swap Save button back to Edit button
+    });
+
+    // Replace text with input fields
+    card.replaceChild(nameInput, nameHeading);
+    card.replaceChild(positionInput, positionPara);
+    card.replaceChild(saveButton, card.querySelector(".edit-btn")); // Swap Edit button with Save
+}
+
+// Add event listener to employee cards for editing
+document.querySelectorAll(".employee-card").forEach(card => {
+    const editButton = card.querySelector(".edit-btn"); // Select Edit button
+    editButton.addEventListener("click", function () {
+        enableEditing(card); // Call function to enable editing
+    });
+});
