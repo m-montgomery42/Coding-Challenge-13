@@ -65,4 +65,4 @@ function highlightEmployeeCards() {
 }
 
 // Call the function to apply highlighting to all cards
-highlightEmployeeCards();
+highlightEmployeeCards(); // **Update for task 1 commit name**
