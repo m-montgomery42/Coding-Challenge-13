@@ -1,5 +1,5 @@
 // Task 1: Creating the Base Structure
-// No JavaScript needed for this, as the HTML already has the necessary structure.
+// Completed in the HTML file
 
 // Task 2: Adding Employee Cards Dynamically
 
@@ -49,3 +49,20 @@ addEmployeeCard("Sophia Reynolds", "Air Traffic Controller");
 addEmployeeCard("Daniel Thompson", "Aircraft Maintenance Engineer");
 addEmployeeCard("Emma Rodriguez", "Flight Attendant");
 addEmployeeCard("Michael Johnson", "Aviation Safety Inspector");
+
+// Task 3: Converting NodeLists to Arrays for Bulk Updates
+
+// Function to highlight all employee cards
+function highlightEmployeeCards() {
+    const cards = document.querySelectorAll(".employee-card"); // Select all employee cards
+    const cardArray = Array.from(cards); // Convert NodeList to an array
+
+    // Loop through each card and add a new grayish blue background color
+    cardArray.forEach(card => {
+        card.style.backgroundColor = "#6c7a89"; // Grayish blue background
+        card.style.border = "2px solid #556677"; // Slightly darker border for contrast
+    });
+}
+
+// Call the function to apply highlighting to all cards
+highlightEmployeeCards();
